@@ -63,10 +63,10 @@
     },
     {
       "fields": {
-        "Date": 1775296800000,
+        "Date": 1775383200000,
         "Hari": [
           {
-            "text": "Sabtu",
+            "text": "Minggu",
             "type": "text"
           }
         ],
