@@ -4,6 +4,8 @@ on:
   schedule:
     - cron: "*/30 * * * *"   # runs every 30 minutes
   workflow_dispatch:           # allows manual trigger from GitHub UI
+  repository_dispatch:
+    types: [lark-update]    # ← add this
 
 jobs:
   fetch:
