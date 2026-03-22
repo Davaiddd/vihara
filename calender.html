@@ -1,0 +1,378 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Jadwal Kegiatan</title>
+<link href="https://fonts.googleapis.com/css2?family=Noto+Sans:wght@400;600;700&display=swap" rel="stylesheet" />
+<style>
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+  body {
+    font-family: 'Noto Sans', sans-serif;
+    background: #f0f4f8;
+    padding: 2rem 1rem;
+    min-height: 100vh;
+  }
+
+  .page-title {
+    text-align: center;
+    font-size: 1.6rem;
+    font-weight: 700;
+    color: #1a3a5c;
+    margin-bottom: 0.4rem;
+    letter-spacing: 0.02em;
+  }
+
+  .page-subtitle {
+    text-align: center;
+    font-size: 1rem;
+    color: #4a6080;
+    margin-bottom: 2rem;
+  }
+
+  .status-msg {
+    text-align: center;
+    font-size: 1rem;
+    color: #4a6080;
+    padding: 2rem;
+    background: #fff;
+    border-radius: 12px;
+    max-width: 860px;
+    margin: 0 auto 1.5rem;
+    box-shadow: 0 2px 10px rgba(0,0,0,0.07);
+  }
+
+  .status-msg.error {
+    color: #a32d2d;
+    background: #fcebeb;
+  }
+
+  .refresh-btn {
+    display: block;
+    margin: 0 auto 1.5rem;
+    padding: 0.55rem 1.5rem;
+    background: #2a72c3;
+    color: #fff;
+    border: none;
+    border-radius: 8px;
+    font-size: 0.95rem;
+    font-weight: 600;
+    cursor: pointer;
+    font-family: 'Noto Sans', sans-serif;
+  }
+  .refresh-btn:hover { background: #1a5ca0; }
+
+  .month-block {
+    max-width: 860px;
+    margin: 0 auto 2.5rem;
+    border-radius: 12px;
+    overflow: hidden;
+    box-shadow: 0 4px 20px rgba(0,0,0,0.10);
+  }
+
+  .month-label {
+    background: #1a3a5c;
+    color: #fff;
+    font-size: 1.05rem;
+    font-weight: 700;
+    padding: 0.65rem 1.25rem;
+    letter-spacing: 0.05em;
+    text-transform: uppercase;
+  }
+
+  table {
+    width: 100%;
+    border-collapse: collapse;
+    background: #fff;
+    table-layout: fixed;
+  }
+
+  thead tr { background: #2a72c3; }
+
+  thead th {
+    color: #fff;
+    font-size: 1rem;
+    font-weight: 700;
+    padding: 0.75rem 0.6rem;
+    text-align: center;
+    border: 1.5px solid #1a5ca0;
+  }
+
+  th:nth-child(1) { width: 10%; }
+  th:nth-child(2) { width: 14%; }
+  th:nth-child(3) { width: 9%; }
+  th:nth-child(4) { width: 18%; }
+  th:nth-child(5) { width: 49%; }
+
+  tbody td {
+    font-size: 0.97rem;
+    font-weight: 600;
+    padding: 0.65rem 0.75rem;
+    text-align: center;
+    border: 1.5px solid #c5d8ef;
+    color: #1a2f4a;
+    vertical-align: middle;
+    line-height: 1.45;
+  }
+
+  tbody td.kegiatan { text-align: center; font-weight: 700; }
+
+  tbody tr:nth-child(even) td { background: #edf4fc; }
+  tbody tr:nth-child(odd)  td { background: #ffffff; }
+  tbody tr:hover td { background: #d6eaf8; transition: background 0.15s; }
+
+  .td-day, .td-date {
+    background: #f7fafd !important;
+    font-weight: 700;
+    color: #1a3a5c;
+  }
+
+  @media (max-width: 600px) {
+    table { display: block; overflow-x: auto; }
+    .page-title { font-size: 1.2rem; }
+    tbody td, thead th { font-size: 0.82rem; padding: 0.5rem 0.4rem; }
+  }
+</style>
+</head>
+<body>
+
+<div class="page-title">Jadwal Kegiatan</div>
+<div class="page-subtitle">Data langsung dari Lark Base</div>
+<button class="refresh-btn" onclick="loadData()">&#8635; Refresh Data</button>
+<div id="schedule-container">
+  <div class="status-msg">Memuat data dari Lark Base...</div>
+</div>
+
+<script>
+// ============================================================
+//  KONFIGURASI — ganti jika credentials berubah
+// ============================================================
+const CONFIG = {
+  appId:     "cli_a9351d9c2578de15",
+  appSecret: "ip3E3PgnLxq5lLKRbfjcabLSRCt21Box",
+  appToken:  "K4tEbmzwyah8XMs0lxljj7j8pJf",
+  tableId:   "tbljjIum2ML02FEG",
+};
+
+// ============================================================
+//  NAMA FIELD — sesuaikan jika nama kolom di Lark berbeda
+// ============================================================
+const FIELDS = {
+  judul:  "Judul Acara",
+  date:   "Date",
+  hari:   "Hari",
+  tempat: "Tempat Acara",
+};
+
+const BULAN = [
+  "Januari","Februari","Maret","April","Mei","Juni",
+  "Juli","Agustus","September","Oktober","November","Desember"
+];
+
+// ============================================================
+//  STEP 1 — Get tenant access token
+// ============================================================
+async function getAccessToken() {
+  const res = await fetch(
+    "https://open.larksuite.com/open-apis/auth/v3/tenant_access_token/internal",
+    {
+      method: "POST",
+      headers: { "Content-Type": "application/json" },
+      body: JSON.stringify({ app_id: CONFIG.appId, app_secret: CONFIG.appSecret }),
+    }
+  );
+  const data = await res.json();
+  if (data.code !== 0) throw new Error("Autentikasi gagal: " + data.msg);
+  return data.tenant_access_token;
+}
+
+// ============================================================
+//  STEP 2 — Fetch all records (with pagination)
+// ============================================================
+async function fetchRecords(token) {
+  let allItems = [];
+  let pageToken = "";
+
+  do {
+    const url = new URL(
+      `https://open.larksuite.com/open-apis/bitable/v1/apps/${CONFIG.appToken}/tables/${CONFIG.tableId}/records`
+    );
+    url.searchParams.set("page_size", "100");
+    if (pageToken) url.searchParams.set("page_token", pageToken);
+
+    const res = await fetch(url.toString(), {
+      headers: { "Authorization": "Bearer " + token },
+    });
+    const data = await res.json();
+    if (data.code !== 0) throw new Error("Gagal mengambil data: " + data.msg);
+
+    allItems = allItems.concat(data.data.items || []);
+    pageToken = data.data.has_more ? data.data.page_token : "";
+  } while (pageToken);
+
+  return allItems;
+}
+
+// ============================================================
+//  STEP 3 — Parse each record into display object
+// ============================================================
+function parseRecord(item) {
+  const f = item.fields;
+
+  // --- Date field (Unix ms timestamp) ---
+  const rawDate = f[FIELDS.date];
+  let tanggalStr = "", waktuStr = "", sortKey = 0, monthKey = "";
+
+  if (rawDate) {
+    const ts = typeof rawDate === "object" ? (rawDate.value || rawDate) : rawDate;
+    const d = new Date(Number(ts));
+    const day   = d.getDate();
+    const month = d.getMonth();
+    const year  = d.getFullYear();
+    const hh    = String(d.getHours()).padStart(2, "0");
+    const mm    = String(d.getMinutes()).padStart(2, "0");
+
+    tanggalStr = `${day} ${BULAN[month].slice(0,3)} ${year}`;
+    waktuStr   = `${hh}.${mm}`;
+    sortKey    = d.getTime();
+    monthKey   = `${BULAN[month]} ${year}`;
+  }
+
+  // --- Tempat Acara (select field or text) ---
+  const rawTempat = f[FIELDS.tempat];
+  let tempatStr = "";
+  if (Array.isArray(rawTempat)) {
+    tempatStr = rawTempat.map(t => t.text || t.value || String(t)).join(", ");
+  } else if (rawTempat && typeof rawTempat === "object") {
+    tempatStr = rawTempat.text || rawTempat.value || "";
+  } else {
+    tempatStr = String(rawTempat || "");
+  }
+
+  // --- Judul Acara (rich text or plain) ---
+  const rawJudul = f[FIELDS.judul];
+  let judulStr = "";
+  if (Array.isArray(rawJudul)) {
+    judulStr = rawJudul.map(t => t.text || String(t)).join("");
+  } else {
+    judulStr = String(rawJudul || "");
+  }
+
+  // --- Hari ---
+  const rawHari = f[FIELDS.hari];
+  let hariStr = "";
+  if (Array.isArray(rawHari)) {
+    hariStr = rawHari.map(t => t.text || String(t)).join("");
+  } else {
+    hariStr = String(rawHari || "");
+  }
+
+  return { judul: judulStr, tanggal: tanggalStr, waktu: waktuStr, hari: hariStr, tempat: tempatStr, sortKey, monthKey };
+}
+
+// ============================================================
+//  STEP 4 — Group events by month, sort by date
+// ============================================================
+function groupEvents(events) {
+  events.sort((a, b) => a.sortKey - b.sortKey);
+
+  const months = {};
+  const monthOrder = [];
+
+  events.forEach(ev => {
+    if (!ev.monthKey) return;
+    if (!months[ev.monthKey]) {
+      months[ev.monthKey] = [];
+      monthOrder.push(ev.monthKey);
+    }
+    months[ev.monthKey].push(ev);
+  });
+
+  return { months, monthOrder };
+}
+
+// ============================================================
+//  STEP 5 — Build table HTML with rowspan for same dates
+// ============================================================
+function buildTable(events) {
+  const spanCount = {};
+  events.forEach(ev => {
+    spanCount[ev.tanggal] = (spanCount[ev.tanggal] || 0) + 1;
+  });
+
+  const seen = {};
+  let rows = "";
+
+  events.forEach(ev => {
+    const isFirst = !seen[ev.tanggal];
+    seen[ev.tanggal] = true;
+    const span = spanCount[ev.tanggal];
+
+    rows += "<tr>";
+    if (isFirst) {
+      rows += `<td class="td-day" rowspan="${span}">${ev.hari}</td>`;
+      rows += `<td class="td-date" rowspan="${span}">${ev.tanggal}</td>`;
+    }
+    rows += `<td>${ev.waktu}</td>`;
+    rows += `<td>${ev.tempat}</td>`;
+    rows += `<td class="kegiatan">${ev.judul}</td>`;
+    rows += "</tr>";
+  });
+
+  return `
+    <table>
+      <thead>
+        <tr>
+          <th>Hari</th><th>Tanggal</th><th>Waktu</th><th>Tempat</th><th>Kegiatan</th>
+        </tr>
+      </thead>
+      <tbody>${rows}</tbody>
+    </table>`;
+}
+
+// ============================================================
+//  MAIN
+// ============================================================
+async function loadData() {
+  const container = document.getElementById("schedule-container");
+  container.innerHTML = `<div class="status-msg">Memuat data dari Lark Base...</div>`;
+
+  try {
+    const token  = await getAccessToken();
+    const items  = await fetchRecords(token);
+
+    if (!items.length) {
+      container.innerHTML = `<div class="status-msg">Tidak ada data ditemukan di tabel.</div>`;
+      return;
+    }
+
+    const events = items.map(parseRecord).filter(ev => ev.tanggal);
+    const { months, monthOrder } = groupEvents(events);
+
+    let html = "";
+    monthOrder.forEach(key => {
+      html += `<div class="month-block">`;
+      html += `<div class="month-label">${key}</div>`;
+      html += buildTable(months[key]);
+      html += `</div>`;
+    });
+
+    container.innerHTML = html;
+
+  } catch (err) {
+    console.error(err);
+    container.innerHTML = `<div class="status-msg error">
+      <strong>Gagal memuat data</strong><br><br>
+      ${err.message}<br><br>
+      Kemungkinan penyebab:<br>
+      1. App belum diberi akses ke Lark Base (tambahkan app sebagai kolaborator)<br>
+      2. CORS diblokir browser — coba buka via GitHub Pages, bukan file lokal
+    </div>`;
+  }
+}
+
+loadData();
+</script>
+</body>
+</html>
