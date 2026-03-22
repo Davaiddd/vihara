@@ -1,0 +1,185 @@
+{
+  "ok": true,
+  "items": [
+    {
+      "fields": {
+        "Date": 1773594000000,
+        "Hari": [
+          {
+            "text": "Senin",
+            "type": "text"
+          }
+        ],
+        "Judul Acara": "Mandarin",
+        "Tempat Acara": "Xiu De"
+      },
+      "id": "recvdzrK5RdkfI",
+      "record_id": "recvdzrK5RdkfI"
+    },
+    {
+      "fields": {
+        "Date": 1773831600000,
+        "Hari": [
+          {
+            "text": "Rabu",
+            "type": "text"
+          }
+        ],
+        "Judul Acara": "Kebaktian malam che it",
+        "Tempat Acara": "Xiu De"
+      },
+      "id": "recV5R7dGD",
+      "record_id": "recV5R7dGD"
+    },
+    {
+      "fields": {
+        "Date": 1774747800000,
+        "Hari": [
+          {
+            "text": "Minggu",
+            "type": "text"
+          }
+        ],
+        "Judul Acara": "Pembukaan kelas Xie Jue",
+        "Tempat Acara": "Pusat"
+      },
+      "id": "recXz9f7ID",
+      "record_id": "recXz9f7ID"
+    },
+    {
+      "fields": {
+        "Date": 1774747800000,
+        "Hari": [
+          {
+            "text": "Minggu",
+            "type": "text"
+          }
+        ],
+        "Judul Acara": "Kelas remaja zona",
+        "Tempat Acara": "Thung Te"
+      },
+      "id": "recRbXBBj2",
+      "record_id": "recRbXBBj2"
+    },
+    {
+      "fields": {
+        "Date": 1775296800000,
+        "Hari": [
+          {
+            "text": "Sabtu",
+            "type": "text"
+          }
+        ],
+        "Judul Acara": "Kelas SMP",
+        "Tempat Acara": "Thung Te"
+      },
+      "id": "reciUQMnNA",
+      "record_id": "reciUQMnNA"
+    },
+    {
+      "fields": {
+        "Date": 1775565000000,
+        "Hari": [
+          {
+            "text": "Selasa",
+            "type": "text"
+          }
+        ],
+        "Judul Acara": "Kelas.penceramah \nBedah kitab suci",
+        "Tempat Acara": "Online"
+      },
+      "id": "recWJ4HbRM",
+      "record_id": "recWJ4HbRM"
+    },
+    {
+      "fields": {
+        "Date": 1775871000000,
+        "Hari": [
+          {
+            "text": "Sabtu",
+            "type": "text"
+          }
+        ],
+        "Judul Acara": "Fa hui di Vihara Yi te",
+        "Tempat Acara": "Lainnya"
+      },
+      "id": "recSS46tF6",
+      "record_id": "recSS46tF6"
+    },
+    {
+      "fields": {
+        "Date": 1775957400000,
+        "Hari": [
+          {
+            "text": "Minggu",
+            "type": "text"
+          }
+        ],
+        "Judul Acara": "Fa hui vihara Yite",
+        "Tempat Acara": "Lainnya"
+      },
+      "id": "recQ60YZcm",
+      "record_id": "recQ60YZcm"
+    },
+    {
+      "fields": {
+        "Date": 1775957400000,
+        "Hari": [
+          {
+            "text": "Minggu",
+            "type": "text"
+          }
+        ],
+        "Judul Acara": "Te ce pan",
+        "Tempat Acara": "Pusat"
+      },
+      "id": "rectf00I9g",
+      "record_id": "rectf00I9g"
+    },
+    {
+      "fields": {
+        "Date": 1776169800000,
+        "Hari": [
+          {
+            "text": "Selasa",
+            "type": "text"
+          }
+        ],
+        "Judul Acara": "Kelas Penceramah \nBedah kitab suci",
+        "Tempat Acara": "Online"
+      },
+      "id": "recQqKCblY",
+      "record_id": "recQqKCblY"
+    },
+    {
+      "fields": {
+        "Date": 1777080600000,
+        "Hari": [
+          {
+            "text": "Sabtu",
+            "type": "text"
+          }
+        ],
+        "Judul Acara": "Kelas pertemuan dharma",
+        "Tempat Acara": "Thung Te"
+      },
+      "id": "recI46WPJU",
+      "record_id": "recI46WPJU"
+    },
+    {
+      "fields": {
+        "Date": 1774767600000,
+        "Hari": [
+          {
+            "text": "Minggu",
+            "type": "text"
+          }
+        ],
+        "Judul Acara": "CSP & PTP",
+        "Tempat Acara": "Thung Te"
+      },
+      "id": "recHNhFTKe",
+      "record_id": "recHNhFTKe"
+    }
+  ]
+}
