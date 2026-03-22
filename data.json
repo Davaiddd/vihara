@@ -228,18 +228,18 @@
     },
     {
       "fields": {
-        "Date": 1774175400000,
+        "Date": 1774174740000,
         "Hari": [
           {
             "text": "Minggu",
             "type": "text"
           }
         ],
-        "Judul Acara": "Test",
+        "Judul Acara": "test",
         "Tempat Acara": "Xiu De"
       },
-      "id": "recveAE0JKvAFB",
-      "record_id": "recveAE0JKvAFB"
+      "id": "recveAEregJyvP",
+      "record_id": "recveAEregJyvP"
     }
   ]
 }
