@@ -1,0 +1,568 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Jadwal Kegiatan</title>
+<link href="https://fonts.googleapis.com/css2?family=Noto+Sans:wght@400;600;700&display=swap" rel="stylesheet" />
+<style>
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+  body {
+    font-family: 'Noto Sans', sans-serif;
+    background: #f0f4f8;
+    padding: 2rem 1rem;
+    min-height: 100vh;
+  }
+
+  .page-title {
+    text-align: center;
+    font-size: 1.6rem;
+    font-weight: 700;
+    color: #1a3a5c;
+    margin-bottom: 0.4rem;
+    letter-spacing: 0.02em;
+  }
+
+  .page-subtitle {
+    text-align: center;
+    font-size: 1rem;
+    color: #4a6080;
+    margin-bottom: 0.4rem;
+  }
+
+  .last-updated {
+    text-align: center;
+    font-size: 0.85rem;
+    color: #7a90a8;
+    margin-bottom: 1.5rem;
+  }
+
+  /* ── Config Panel ── */
+  .config-panel {
+    max-width: 860px;
+    margin: 0 auto 1.75rem;
+    background: #fff;
+    border-radius: 12px;
+    box-shadow: 0 2px 12px rgba(0,0,0,0.08);
+    overflow: hidden;
+  }
+
+  .config-header {
+    background: #1a3a5c;
+    color: #fff;
+    font-size: 0.95rem;
+    font-weight: 700;
+    padding: 0.6rem 1.25rem;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    cursor: pointer;
+    user-select: none;
+  }
+
+  .config-header .toggle-icon {
+    font-size: 0.85rem;
+    transition: transform 0.2s;
+  }
+
+  .config-header.open .toggle-icon { transform: rotate(180deg); }
+
+  .config-body {
+    padding: 1.1rem 1.25rem;
+    display: none;
+  }
+
+  .config-body.visible { display: block; }
+
+  .config-row {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: flex-end;
+    gap: 1rem;
+  }
+
+  .config-group {
+    display: flex;
+    flex-direction: column;
+    gap: 0.35rem;
+    flex: 1;
+    min-width: 160px;
+  }
+
+  .config-group label {
+    font-size: 0.85rem;
+    font-weight: 600;
+    color: #4a6080;
+  }
+
+  .config-group select {
+    padding: 0.5rem 0.75rem;
+    border: 1.5px solid #c5d8ef;
+    border-radius: 8px;
+    font-size: 0.95rem;
+    font-family: 'Noto Sans', sans-serif;
+    color: #1a2f4a;
+    background: #f7fafd;
+    cursor: pointer;
+  }
+
+  .config-group select:focus {
+    outline: none;
+    border-color: #2a72c3;
+  }
+
+  .config-actions {
+    display: flex;
+    gap: 0.6rem;
+    align-items: flex-end;
+    flex-wrap: wrap;
+  }
+
+  .btn {
+    padding: 0.52rem 1.2rem;
+    border: none;
+    border-radius: 8px;
+    font-size: 0.92rem;
+    font-weight: 600;
+    cursor: pointer;
+    font-family: 'Noto Sans', sans-serif;
+    white-space: nowrap;
+  }
+
+  .btn-primary { background: #2a72c3; color: #fff; }
+  .btn-primary:hover { background: #1a5ca0; }
+
+  .btn-secondary { background: #e8f0fb; color: #1a5ca0; }
+  .btn-secondary:hover { background: #d0e4f7; }
+
+  .active-range {
+    max-width: 860px;
+    margin: 0 auto 1rem;
+    text-align: center;
+    font-size: 0.92rem;
+    color: #2a72c3;
+    font-weight: 600;
+  }
+
+  /* ── Status & Refresh ── */
+  .status-msg {
+    text-align: center;
+    font-size: 1rem;
+    color: #4a6080;
+    padding: 2rem;
+    background: #fff;
+    border-radius: 12px;
+    max-width: 860px;
+    margin: 0 auto 1.5rem;
+    box-shadow: 0 2px 10px rgba(0,0,0,0.07);
+  }
+
+  .status-msg.error { color: #a32d2d; background: #fcebeb; }
+
+  .refresh-btn {
+    display: block;
+    margin: 0 auto 1.25rem;
+    padding: 0.52rem 1.4rem;
+    background: #2a72c3;
+    color: #fff;
+    border: none;
+    border-radius: 8px;
+    font-size: 0.92rem;
+    font-weight: 600;
+    cursor: pointer;
+    font-family: 'Noto Sans', sans-serif;
+  }
+  .refresh-btn:hover { background: #1a5ca0; }
+
+  /* ── Table ── */
+  .month-block {
+    max-width: 860px;
+    margin: 0 auto 2.5rem;
+    border-radius: 12px;
+    overflow: hidden;
+    box-shadow: 0 4px 20px rgba(0,0,0,0.10);
+  }
+
+  .month-label {
+    background: #1a3a5c;
+    color: #fff;
+    font-size: 1.05rem;
+    font-weight: 700;
+    padding: 0.65rem 1.25rem;
+    letter-spacing: 0.05em;
+    text-transform: uppercase;
+  }
+
+  table {
+    width: 100%;
+    border-collapse: collapse;
+    background: #fff;
+    table-layout: fixed;
+  }
+
+  thead tr { background: #2a72c3; }
+
+  thead th {
+    color: #fff;
+    font-size: 1rem;
+    font-weight: 700;
+    padding: 0.75rem 0.6rem;
+    text-align: center;
+    border: 1.5px solid #1a5ca0;
+  }
+
+  th:nth-child(1) { width: 10%; }
+  th:nth-child(2) { width: 14%; }
+  th:nth-child(3) { width: 9%; }
+  th:nth-child(4) { width: 18%; }
+  th:nth-child(5) { width: 49%; }
+
+  tbody td {
+    font-size: 0.97rem;
+    font-weight: 600;
+    padding: 0.65rem 0.75rem;
+    text-align: center;
+    border: 1.5px solid #c5d8ef;
+    color: #1a2f4a;
+    vertical-align: middle;
+    line-height: 1.45;
+  }
+
+  tbody td.kegiatan { font-weight: 700; }
+  tbody tr:nth-child(even) td { background: #edf4fc; }
+  tbody tr:nth-child(odd)  td { background: #ffffff; }
+  tbody tr:hover td { background: #d6eaf8; transition: background 0.15s; }
+
+  .td-day, .td-date {
+    background: #f7fafd !important;
+    font-weight: 700;
+    color: #1a3a5c;
+  }
+
+  .no-data {
+    text-align: center;
+    font-size: 1rem;
+    color: #7a90a8;
+    padding: 2rem;
+    background: #fff;
+    border-radius: 12px;
+    max-width: 860px;
+    margin: 0 auto;
+    box-shadow: 0 2px 10px rgba(0,0,0,0.07);
+  }
+
+  @media (max-width: 600px) {
+    table { display: block; overflow-x: auto; }
+    .page-title { font-size: 1.2rem; }
+    tbody td, thead th { font-size: 0.82rem; padding: 0.5rem 0.4rem; }
+    .config-row { flex-direction: column; }
+  }
+</style>
+</head>
+<body>
+
+<div class="page-title">Jadwal Kegiatan</div>
+<div class="page-subtitle">Data diperbarui otomatis setiap 30 menit</div>
+<div class="last-updated" id="lastUpdated"></div>
+
+<!-- Config Panel -->
+<div class="config-panel">
+  <div class="config-header" id="configHeader" onclick="toggleConfig()">
+    <span>&#9881; Konfigurasi Tampilan</span>
+    <span class="toggle-icon">&#9660;</span>
+  </div>
+  <div class="config-body" id="configBody">
+    <div class="config-row">
+      <div class="config-group">
+        <label>Dari Bulan</label>
+        <select id="fromMonth"></select>
+      </div>
+      <div class="config-group">
+        <label>Dari Tahun</label>
+        <select id="fromYear"></select>
+      </div>
+      <div class="config-group">
+        <label>Sampai Bulan</label>
+        <select id="toMonth"></select>
+      </div>
+      <div class="config-group">
+        <label>Sampai Tahun</label>
+        <select id="toYear"></select>
+      </div>
+      <div class="config-actions">
+        <button class="btn btn-primary" onclick="applyFilter()">Terapkan</button>
+        <button class="btn btn-secondary" onclick="resetFilter()">Bulan Ini</button>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="active-range" id="activeRange"></div>
+<button class="refresh-btn" onclick="loadData()">&#8635; Refresh Data</button>
+<div id="schedule-container">
+  <div class="status-msg">Memuat jadwal...</div>
+</div>
+
+<script>
+const BULAN = [
+  "Januari","Februari","Maret","April","Mei","Juni",
+  "Juli","Agustus","September","Oktober","November","Desember"
+];
+
+const FIELDS = {
+  judul:  "Judul Acara",
+  date:   "Date",
+  hari:   "Hari",
+  tempat: "Tempat Acara",
+};
+
+// Active filter state — default = current month
+const now = new Date();
+let filter = {
+  fromMonth: now.getMonth(),
+  fromYear:  now.getFullYear(),
+  toMonth:   now.getMonth(),
+  toYear:    now.getFullYear(),
+};
+
+let allEvents = [];
+
+// ============================================================
+//  Config Panel UI
+// ============================================================
+function toggleConfig() {
+  const body   = document.getElementById("configBody");
+  const header = document.getElementById("configHeader");
+  body.classList.toggle("visible");
+  header.classList.toggle("open");
+}
+
+function buildSelects() {
+  const fromM = document.getElementById("fromMonth");
+  const toM   = document.getElementById("toMonth");
+  const fromY = document.getElementById("fromYear");
+  const toY   = document.getElementById("toYear");
+
+  BULAN.forEach((b, i) => {
+    fromM.innerHTML += `<option value="${i}">${b}</option>`;
+    toM.innerHTML   += `<option value="${i}">${b}</option>`;
+  });
+
+  // Year range: 2 years back to 2 years forward
+  for (let y = now.getFullYear() - 2; y <= now.getFullYear() + 2; y++) {
+    fromY.innerHTML += `<option value="${y}">${y}</option>`;
+    toY.innerHTML   += `<option value="${y}">${y}</option>`;
+  }
+
+  // Set selects to current filter
+  fromM.value = filter.fromMonth;
+  fromY.value = filter.fromYear;
+  toM.value   = filter.toMonth;
+  toY.value   = filter.toYear;
+}
+
+function applyFilter() {
+  filter.fromMonth = parseInt(document.getElementById("fromMonth").value);
+  filter.fromYear  = parseInt(document.getElementById("fromYear").value);
+  filter.toMonth   = parseInt(document.getElementById("toMonth").value);
+  filter.toYear    = parseInt(document.getElementById("toYear").value);
+
+  // Validate: from must not be after to
+  const fromKey = filter.fromYear * 12 + filter.fromMonth;
+  const toKey   = filter.toYear   * 12 + filter.toMonth;
+
+  if (fromKey > toKey) {
+    alert("Bulan awal tidak boleh lebih dari bulan akhir.");
+    return;
+  }
+
+  renderEvents();
+  toggleConfig();
+}
+
+function resetFilter() {
+  filter = {
+    fromMonth: now.getMonth(),
+    fromYear:  now.getFullYear(),
+    toMonth:   now.getMonth(),
+    toYear:    now.getFullYear(),
+  };
+  document.getElementById("fromMonth").value = filter.fromMonth;
+  document.getElementById("fromYear").value  = filter.fromYear;
+  document.getElementById("toMonth").value   = filter.toMonth;
+  document.getElementById("toYear").value    = filter.toYear;
+  renderEvents();
+  toggleConfig();
+}
+
+function updateActiveRangeLabel() {
+  const from = `${BULAN[filter.fromMonth]} ${filter.fromYear}`;
+  const to   = `${BULAN[filter.toMonth]} ${filter.toYear}`;
+  const label = from === to
+    ? `Menampilkan: ${from}`
+    : `Menampilkan: ${from} — ${to}`;
+  document.getElementById("activeRange").textContent = label;
+}
+
+// ============================================================
+//  Parse record
+// ============================================================
+function parseRecord(item) {
+  const f = item.fields;
+
+  const rawDate = f[FIELDS.date];
+  let tanggalStr = "", waktuStr = "", sortKey = 0, monthKey = "", monthNum = -1, yearNum = -1;
+
+  if (rawDate) {
+    const ts = typeof rawDate === "object" ? (rawDate.value || rawDate) : rawDate;
+    const d  = new Date(Number(ts));
+    monthNum = d.getMonth();
+    yearNum  = d.getFullYear();
+    const day = d.getDate();
+    const hh  = String(d.getHours()).padStart(2, "0");
+    const mm  = String(d.getMinutes()).padStart(2, "0");
+
+    tanggalStr = `${day} ${BULAN[monthNum].slice(0,3)} ${yearNum}`;
+    waktuStr   = `${hh}.${mm}`;
+    sortKey    = d.getTime();
+    monthKey   = `${BULAN[monthNum]} ${yearNum}`;
+  }
+
+  const rawTempat = f[FIELDS.tempat];
+  let tempatStr = "";
+  if (Array.isArray(rawTempat)) {
+    tempatStr = rawTempat.map(t => t.text || t.value || String(t)).join(", ");
+  } else if (rawTempat && typeof rawTempat === "object") {
+    tempatStr = rawTempat.text || rawTempat.value || "";
+  } else {
+    tempatStr = String(rawTempat || "");
+  }
+
+  const rawJudul = f[FIELDS.judul];
+  let judulStr = Array.isArray(rawJudul)
+    ? rawJudul.map(t => t.text || String(t)).join("")
+    : String(rawJudul || "");
+
+  const rawHari = f[FIELDS.hari];
+  let hariStr = Array.isArray(rawHari)
+    ? rawHari.map(t => t.text || String(t)).join("")
+    : String(rawHari || "");
+
+  return { judul: judulStr, tanggal: tanggalStr, waktu: waktuStr, hari: hariStr, tempat: tempatStr, sortKey, monthKey, monthNum, yearNum };
+}
+
+// ============================================================
+//  Filter by selected month range
+// ============================================================
+function filterByRange(events) {
+  const fromKey = filter.fromYear * 12 + filter.fromMonth;
+  const toKey   = filter.toYear   * 12 + filter.toMonth;
+
+  return events.filter(ev => {
+    const evKey = ev.yearNum * 12 + ev.monthNum;
+    return evKey >= fromKey && evKey <= toKey;
+  });
+}
+
+// ============================================================
+//  Group + build table
+// ============================================================
+function groupEvents(events) {
+  events.sort((a, b) => a.sortKey - b.sortKey);
+  const months = {}, monthOrder = [];
+  events.forEach(ev => {
+    if (!ev.monthKey) return;
+    if (!months[ev.monthKey]) { months[ev.monthKey] = []; monthOrder.push(ev.monthKey); }
+    months[ev.monthKey].push(ev);
+  });
+  return { months, monthOrder };
+}
+
+function buildTable(events) {
+  const spanCount = {};
+  events.forEach(ev => { spanCount[ev.tanggal] = (spanCount[ev.tanggal] || 0) + 1; });
+
+  const seen = {};
+  let rows = "";
+  events.forEach(ev => {
+    const isFirst = !seen[ev.tanggal];
+    seen[ev.tanggal] = true;
+    rows += "<tr>";
+    if (isFirst) {
+      rows += `<td class="td-day" rowspan="${spanCount[ev.tanggal]}">${ev.hari}</td>`;
+      rows += `<td class="td-date" rowspan="${spanCount[ev.tanggal]}">${ev.tanggal}</td>`;
+    }
+    rows += `<td>${ev.waktu}</td><td>${ev.tempat}</td><td class="kegiatan">${ev.judul}</td>`;
+    rows += "</tr>";
+  });
+
+  return `<table>
+    <thead><tr><th>Hari</th><th>Tanggal</th><th>Waktu</th><th>Tempat</th><th>Kegiatan</th></tr></thead>
+    <tbody>${rows}</tbody>
+  </table>`;
+}
+
+// ============================================================
+//  Render filtered events
+// ============================================================
+function renderEvents() {
+  const container = document.getElementById("schedule-container");
+  updateActiveRangeLabel();
+
+  const filtered = filterByRange(allEvents);
+
+  if (!filtered.length) {
+    container.innerHTML = `<div class="no-data">Tidak ada kegiatan pada periode yang dipilih.</div>`;
+    return;
+  }
+
+  const { months, monthOrder } = groupEvents(filtered);
+  let html = "";
+  monthOrder.forEach(key => {
+    html += `<div class="month-block">`;
+    html += `<div class="month-label">${key}</div>`;
+    html += buildTable(months[key]);
+    html += `</div>`;
+  });
+
+  container.innerHTML = html;
+}
+
+// ============================================================
+//  Load data.json
+// ============================================================
+async function loadData() {
+  const container = document.getElementById("schedule-container");
+  container.innerHTML = `<div class="status-msg">Memuat jadwal...</div>`;
+
+  try {
+    const res = await fetch("data.json?t=" + Date.now());
+    if (!res.ok) throw new Error(`data.json tidak ditemukan (${res.status}).`);
+
+    const data = await res.json();
+    if (!data.ok) throw new Error(data.error || "Format data tidak valid.");
+
+    allEvents = data.items.map(parseRecord).filter(ev => ev.tanggal);
+
+    document.getElementById("lastUpdated").textContent =
+      "Terakhir dimuat: " + new Date().toLocaleString("id-ID");
+
+    renderEvents();
+
+  } catch (err) {
+    console.error(err);
+    container.innerHTML = `<div class="status-msg error">
+      <strong>Gagal memuat data</strong><br><br>${err.message}
+    </div>`;
+  }
+}
+
+// ============================================================
+//  Init
+// ============================================================
+buildSelects();
+loadData();
+</script>
+</body>
+</html>
