@@ -28,7 +28,14 @@
     text-align: center;
     font-size: 1rem;
     color: #4a6080;
-    margin-bottom: 2rem;
+    margin-bottom: 0.5rem;
+  }
+
+  .last-updated {
+    text-align: center;
+    font-size: 0.85rem;
+    color: #7a90a8;
+    margin-bottom: 1.5rem;
   }
 
   .status-msg {
@@ -138,26 +145,19 @@
 <body>
 
 <div class="page-title">Jadwal Kegiatan</div>
-<div class="page-subtitle">Data langsung dari Lark Base</div>
-<button class="refresh-btn" onclick="loadData()">&#8635; Refresh Data</button>
+<div class="page-subtitle">Data diperbarui otomatis setiap 30 menit</div>
+<div class="last-updated" id="lastUpdated"></div>
+<button class="refresh-btn" onclick="loadData()">&#8635; Refresh</button>
 <div id="schedule-container">
-  <div class="status-msg">Memuat data dari Lark Base...</div>
+  <div class="status-msg">Memuat jadwal...</div>
 </div>
 
 <script>
-// ============================================================
-//  KONFIGURASI — ganti jika credentials berubah
-// ============================================================
-const CONFIG = {
-  appId:     "cli_a9351d9c2578de15",
-  appSecret: "ip3E3PgnLxq5lLKRbfjcabLSRCt21Box",
-  appToken:  "K4tEbmzwyah8XMs0lxljj7j8pJf",
-  tableId:   "tbljjIum2ML02FEG",
-};
+const BULAN = [
+  "Januari","Februari","Maret","April","Mei","Juni",
+  "Juli","Agustus","September","Oktober","November","Desember"
+];
 
-// ============================================================
-//  NAMA FIELD — sesuaikan jika nama kolom di Lark berbeda
-// ============================================================
 const FIELDS = {
   judul:  "Judul Acara",
   date:   "Date",
@@ -165,68 +165,18 @@ const FIELDS = {
   tempat: "Tempat Acara",
 };
 
-const BULAN = [
-  "Januari","Februari","Maret","April","Mei","Juni",
-  "Juli","Agustus","September","Oktober","November","Desember"
-];
-
 // ============================================================
-//  STEP 1 — Get tenant access token
-// ============================================================
-async function getAccessToken() {
-  const res = await fetch(
-    "https://open.larksuite.com/open-apis/auth/v3/tenant_access_token/internal",
-    {
-      method: "POST",
-      headers: { "Content-Type": "application/json" },
-      body: JSON.stringify({ app_id: CONFIG.appId, app_secret: CONFIG.appSecret }),
-    }
-  );
-  const data = await res.json();
-  if (data.code !== 0) throw new Error("Autentikasi gagal: " + data.msg);
-  return data.tenant_access_token;
-}
-
-// ============================================================
-//  STEP 2 — Fetch all records (with pagination)
-// ============================================================
-async function fetchRecords(token) {
-  let allItems = [];
-  let pageToken = "";
-
-  do {
-    const url = new URL(
-      `https://open.larksuite.com/open-apis/bitable/v1/apps/${CONFIG.appToken}/tables/${CONFIG.tableId}/records`
-    );
-    url.searchParams.set("page_size", "100");
-    if (pageToken) url.searchParams.set("page_token", pageToken);
-
-    const res = await fetch(url.toString(), {
-      headers: { "Authorization": "Bearer " + token },
-    });
-    const data = await res.json();
-    if (data.code !== 0) throw new Error("Gagal mengambil data: " + data.msg);
-
-    allItems = allItems.concat(data.data.items || []);
-    pageToken = data.data.has_more ? data.data.page_token : "";
-  } while (pageToken);
-
-  return allItems;
-}
-
-// ============================================================
-//  STEP 3 — Parse each record into display object
+//  Parse each Lark record into display object
 // ============================================================
 function parseRecord(item) {
   const f = item.fields;
 
-  // --- Date field (Unix ms timestamp) ---
   const rawDate = f[FIELDS.date];
   let tanggalStr = "", waktuStr = "", sortKey = 0, monthKey = "";
 
   if (rawDate) {
     const ts = typeof rawDate === "object" ? (rawDate.value || rawDate) : rawDate;
-    const d = new Date(Number(ts));
+    const d  = new Date(Number(ts));
     const day   = d.getDate();
     const month = d.getMonth();
     const year  = d.getFullYear();
@@ -239,7 +189,6 @@ function parseRecord(item) {
     monthKey   = `${BULAN[month]} ${year}`;
   }
 
-  // --- Tempat Acara (select field or text) ---
   const rawTempat = f[FIELDS.tempat];
   let tempatStr = "";
   if (Array.isArray(rawTempat)) {
@@ -250,7 +199,6 @@ function parseRecord(item) {
     tempatStr = String(rawTempat || "");
   }
 
-  // --- Judul Acara (rich text or plain) ---
   const rawJudul = f[FIELDS.judul];
   let judulStr = "";
   if (Array.isArray(rawJudul)) {
@@ -259,7 +207,6 @@ function parseRecord(item) {
     judulStr = String(rawJudul || "");
   }
 
-  // --- Hari ---
   const rawHari = f[FIELDS.hari];
   let hariStr = "";
   if (Array.isArray(rawHari)) {
@@ -272,84 +219,68 @@ function parseRecord(item) {
 }
 
 // ============================================================
-//  STEP 4 — Group events by month, sort by date
+//  Group by month
 // ============================================================
 function groupEvents(events) {
   events.sort((a, b) => a.sortKey - b.sortKey);
-
-  const months = {};
-  const monthOrder = [];
-
+  const months = {}, monthOrder = [];
   events.forEach(ev => {
     if (!ev.monthKey) return;
-    if (!months[ev.monthKey]) {
-      months[ev.monthKey] = [];
-      monthOrder.push(ev.monthKey);
-    }
+    if (!months[ev.monthKey]) { months[ev.monthKey] = []; monthOrder.push(ev.monthKey); }
     months[ev.monthKey].push(ev);
   });
-
   return { months, monthOrder };
 }
 
 // ============================================================
-//  STEP 5 — Build table HTML with rowspan for same dates
+//  Build table with rowspan for same-date rows
 // ============================================================
 function buildTable(events) {
   const spanCount = {};
-  events.forEach(ev => {
-    spanCount[ev.tanggal] = (spanCount[ev.tanggal] || 0) + 1;
-  });
+  events.forEach(ev => { spanCount[ev.tanggal] = (spanCount[ev.tanggal] || 0) + 1; });
 
   const seen = {};
   let rows = "";
-
   events.forEach(ev => {
     const isFirst = !seen[ev.tanggal];
     seen[ev.tanggal] = true;
-    const span = spanCount[ev.tanggal];
-
     rows += "<tr>";
     if (isFirst) {
-      rows += `<td class="td-day" rowspan="${span}">${ev.hari}</td>`;
-      rows += `<td class="td-date" rowspan="${span}">${ev.tanggal}</td>`;
+      rows += `<td class="td-day" rowspan="${spanCount[ev.tanggal]}">${ev.hari}</td>`;
+      rows += `<td class="td-date" rowspan="${spanCount[ev.tanggal]}">${ev.tanggal}</td>`;
     }
-    rows += `<td>${ev.waktu}</td>`;
-    rows += `<td>${ev.tempat}</td>`;
-    rows += `<td class="kegiatan">${ev.judul}</td>`;
+    rows += `<td>${ev.waktu}</td><td>${ev.tempat}</td><td class="kegiatan">${ev.judul}</td>`;
     rows += "</tr>";
   });
 
-  return `
-    <table>
-      <thead>
-        <tr>
-          <th>Hari</th><th>Tanggal</th><th>Waktu</th><th>Tempat</th><th>Kegiatan</th>
-        </tr>
-      </thead>
-      <tbody>${rows}</tbody>
-    </table>`;
+  return `<table>
+    <thead><tr><th>Hari</th><th>Tanggal</th><th>Waktu</th><th>Tempat</th><th>Kegiatan</th></tr></thead>
+    <tbody>${rows}</tbody>
+  </table>`;
 }
 
 // ============================================================
-//  MAIN
+//  MAIN — load from data.json (same origin, no CORS issue)
 // ============================================================
 async function loadData() {
   const container = document.getElementById("schedule-container");
-  container.innerHTML = `<div class="status-msg">Memuat data dari Lark Base...</div>`;
+  container.innerHTML = `<div class="status-msg">Memuat jadwal...</div>`;
 
   try {
-    const token  = await getAccessToken();
-    const items  = await fetchRecords(token);
+    // Add cache-busting so browser always fetches the latest data.json
+    const res  = await fetch("data.json?t=" + Date.now());
+    if (!res.ok) throw new Error(`data.json tidak ditemukan (${res.status}). Pastikan GitHub Actions sudah pernah dijalankan.`);
 
-    if (!items.length) {
-      container.innerHTML = `<div class="status-msg">Tidak ada data ditemukan di tabel.</div>`;
+    const data = await res.json();
+    if (!data.ok) throw new Error(data.error || "Format data tidak valid.");
+
+    const events = data.items.map(parseRecord).filter(ev => ev.tanggal);
+    if (!events.length) {
+      container.innerHTML = `<div class="status-msg">Tidak ada data ditemukan.</div>`;
       return;
     }
 
-    const events = items.map(parseRecord).filter(ev => ev.tanggal);
     const { months, monthOrder } = groupEvents(events);
-
     let html = "";
     monthOrder.forEach(key => {
       html += `<div class="month-block">`;
@@ -360,14 +291,14 @@ async function loadData() {
 
     container.innerHTML = html;
 
+    // Show last updated time
+    document.getElementById("lastUpdated").textContent =
+      "Terakhir dimuat: " + new Date().toLocaleString("id-ID");
+
   } catch (err) {
     console.error(err);
     container.innerHTML = `<div class="status-msg error">
-      <strong>Gagal memuat data</strong><br><br>
-      ${err.message}<br><br>
-      Kemungkinan penyebab:<br>
-      1. App belum diberi akses ke Lark Base (tambahkan app sebagai kolaborator)<br>
-      2. CORS diblokir browser — coba buka via GitHub Pages, bukan file lokal
+      <strong>Gagal memuat data</strong><br><br>${err.message}
     </div>`;
   }
 }
