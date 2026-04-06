@@ -255,6 +255,21 @@
       },
       "id": "rec279zjrVScvv",
       "record_id": "rec279zjrVScvv"
+    },
+    {
+      "fields": {
+        "Date": 1776582000000,
+        "Hari": [
+          {
+            "text": "Minggu",
+            "type": "text"
+          }
+        ],
+        "Judul Acara": "Cheng ze ban ",
+        "Tempat Acara": "Pusat"
+      },
+      "id": "rec279zl9Wd5wq",
+      "record_id": "rec279zl9Wd5wq"
     }
   ]
 }
