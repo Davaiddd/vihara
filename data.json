@@ -225,6 +225,21 @@
       },
       "id": "recpIvXzWd",
       "record_id": "recpIvXzWd"
+    },
+    {
+      "fields": {
+        "Date": 1775989800000,
+        "Hari": [
+          {
+            "text": "Minggu",
+            "type": "text"
+          }
+        ],
+        "Judul Acara": "Kelas Sim Pin Pan",
+        "Tempat Acara": "Thung Te"
+      },
+      "id": "rec279ze8gExr9",
+      "record_id": "rec279ze8gExr9"
     }
   ]
 }
