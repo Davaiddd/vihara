@@ -240,6 +240,21 @@
       },
       "id": "rec279ze8gExr9",
       "record_id": "rec279ze8gExr9"
+    },
+    {
+      "fields": {
+        "Date": 1776337200000,
+        "Hari": [
+          {
+            "text": "Kamis",
+            "type": "text"
+          }
+        ],
+        "Judul Acara": "Kebaktian malam che it",
+        "Tempat Acara": "Xiu De"
+      },
+      "id": "rec279zjrVScvv",
+      "record_id": "rec279zjrVScvv"
     }
   ]
 }
