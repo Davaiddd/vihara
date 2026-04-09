@@ -285,6 +285,21 @@
       },
       "id": "rec27aS3K03Oiw",
       "record_id": "rec27aS3K03Oiw"
+    },
+    {
+      "fields": {
+        "Date": 1776562200000,
+        "Hari": [
+          {
+            "text": "Minggu",
+            "type": "text"
+          }
+        ],
+        "Judul Acara": "Kelas remaja di Vihara Cete Jkt",
+        "Tempat Acara": "Lainnya"
+      },
+      "id": "rec27aS5pYtRvJ",
+      "record_id": "rec27aS5pYtRvJ"
     }
   ]
 }
