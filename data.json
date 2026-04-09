@@ -300,6 +300,21 @@
       },
       "id": "rec27aS5pYtRvJ",
       "record_id": "rec27aS5pYtRvJ"
+    },
+    {
+      "fields": {
+        "Date": 1776589200000,
+        "Hari": [
+          {
+            "text": "Minggu",
+            "type": "text"
+          }
+        ],
+        "Judul Acara": "Kelas Ce San Pan & Pe Te Pan",
+        "Tempat Acara": "Thung Te"
+      },
+      "id": "rec27aS7t4MXdS",
+      "record_id": "rec27aS7t4MXdS"
     }
   ]
 }
