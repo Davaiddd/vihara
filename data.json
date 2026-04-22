@@ -330,6 +330,21 @@
       },
       "id": "rec27fVCgpkeYT",
       "record_id": "rec27fVCgpkeYT"
+    },
+    {
+      "fields": {
+        "Date": 1777802400000,
+        "Hari": [
+          {
+            "text": "Minggu",
+            "type": "text"
+          }
+        ],
+        "Judul Acara": "Kelas  Sin Min Pan",
+        "Tempat Acara": "Thung Te"
+      },
+      "id": "rec27fVDqfK0wf",
+      "record_id": "rec27fVDqfK0wf"
     }
   ]
 }
