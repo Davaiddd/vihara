@@ -315,6 +315,21 @@
       },
       "id": "rec27aS7t4MXdS",
       "record_id": "rec27aS7t4MXdS"
+    },
+    {
+      "fields": {
+        "Date": 1777546800000,
+        "Hari": [
+          {
+            "text": "Kamis",
+            "type": "text"
+          }
+        ],
+        "Judul Acara": "Kebaktian Cap Go Lau Mu Ta Tian",
+        "Tempat Acara": "Xiu De"
+      },
+      "id": "rec27fVCgpkeYT",
+      "record_id": "rec27fVCgpkeYT"
     }
   ]
 }
