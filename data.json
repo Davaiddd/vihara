@@ -345,6 +345,21 @@
       },
       "id": "rec27fVDqfK0wf",
       "record_id": "rec27fVDqfK0wf"
+    },
+    {
+      "fields": {
+        "Date": 1777683600000,
+        "Hari": [
+          {
+            "text": "Sabtu",
+            "type": "text"
+          }
+        ],
+        "Judul Acara": "Fa hui di cete tangerang",
+        "Tempat Acara": "Lainnya"
+      },
+      "id": "rec27iQ8C9djcT",
+      "record_id": "rec27iQ8C9djcT"
     }
   ]
 }
