@@ -405,6 +405,21 @@
       },
       "id": "rec27iQdLb89ex",
       "record_id": "rec27iQdLb89ex"
+    },
+    {
+      "fields": {
+        "Date": 1777777200000,
+        "Hari": [
+          {
+            "text": "Minggu",
+            "type": "text"
+          }
+        ],
+        "Judul Acara": "Kelas mandarin",
+        "Tempat Acara": "Xiu De"
+      },
+      "id": "rec27iQeEd2mxH",
+      "record_id": "rec27iQeEd2mxH"
     }
   ]
 }
