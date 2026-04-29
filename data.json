@@ -390,6 +390,21 @@
       },
       "id": "rec27iQc8eFXny",
       "record_id": "rec27iQc8eFXny"
+    },
+    {
+      "fields": {
+        "Date": 1778373000000,
+        "Hari": [
+          {
+            "text": "Minggu",
+            "type": "text"
+          }
+        ],
+        "Judul Acara": "Kelas Tan zu dan Hu Tan Zu pan \nOnline taiwan",
+        "Tempat Acara": "Thung Te"
+      },
+      "id": "rec27iQdLb89ex",
+      "record_id": "rec27iQdLb89ex"
     }
   ]
 }
