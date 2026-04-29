@@ -360,6 +360,21 @@
       },
       "id": "rec27iQ8C9djcT",
       "record_id": "rec27iQ8C9djcT"
+    },
+    {
+      "fields": {
+        "Date": 1777770000000,
+        "Hari": [
+          {
+            "text": "Minggu",
+            "type": "text"
+          }
+        ],
+        "Judul Acara": "Fahui Vhr Cete tangerang",
+        "Tempat Acara": "Lainnya"
+      },
+      "id": "rec27iQ9A9V6O8",
+      "record_id": "rec27iQ9A9V6O8"
     }
   ]
 }
