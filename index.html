@@ -161,21 +161,6 @@
 
   .status-msg.error { color: #a32d2d; background: #fcebeb; }
 
-  .refresh-btn {
-    display: block;
-    margin: 0 auto 1.25rem;
-    padding: 0.52rem 1.4rem;
-    background: #2a72c3;
-    color: #fff;
-    border: none;
-    border-radius: 8px;
-    font-size: 0.92rem;
-    font-weight: 600;
-    cursor: pointer;
-    font-family: 'Noto Sans', sans-serif;
-  }
-  .refresh-btn:hover { background: #1a5ca0; }
-
   /* ── Table ── */
   .month-block {
     max-width: 860px;
@@ -286,13 +271,13 @@
       <div class="config-actions">
         <button class="btn btn-primary" onclick="applyFilter()">Terapkan</button>
         <button class="btn btn-secondary" onclick="resetFilter()">2 Minggu</button>
+        <button class="btn btn-secondary" onclick="loadData()">&#8635; Refresh Data</button>
       </div>
     </div>
   </div>
 </div>
 
 <div class="active-range" id="activeRange"></div>
-<button class="refresh-btn" onclick="loadData()">&#8635; Refresh Data</button>
 <div id="schedule-container">
   <div class="status-msg">Memuat jadwal...</div>
 </div>
