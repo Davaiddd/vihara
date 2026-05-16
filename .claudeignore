@@ -1,0 +1,9 @@
+# Credentials & secrets — Claude should not read these
+.env
+.env.*
+!.env.example
+*.key
+*.pem
+*.p12
+secrets.json
+credentials.json
