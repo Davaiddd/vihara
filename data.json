@@ -420,6 +420,81 @@
       },
       "id": "rec27iQeEd2mxH",
       "record_id": "rec27iQeEd2mxH"
+    },
+    {
+      "fields": {
+        "Date": 1779107400000,
+        "Hari": [
+          {
+            "text": "Senin",
+            "type": "text"
+          }
+        ],
+        "Judul Acara": "Bedah kitab sutra intan ",
+        "Tempat Acara": "Online"
+      },
+      "id": "rec27puo3f55mZ",
+      "record_id": "rec27puo3f55mZ"
+    },
+    {
+      "fields": {
+        "Date": 1779712200000,
+        "Hari": [
+          {
+            "text": "Senin",
+            "type": "text"
+          }
+        ],
+        "Judul Acara": "Bedah kitab sutra intan",
+        "Tempat Acara": "Online"
+      },
+      "id": "rec27puoofnFLD",
+      "record_id": "rec27puoofnFLD"
+    },
+    {
+      "fields": {
+        "Date": 1778981400000,
+        "Hari": [
+          {
+            "text": "Minggu",
+            "type": "text"
+          }
+        ],
+        "Judul Acara": "Kelas Te Ce Pan",
+        "Tempat Acara": "Pusat"
+      },
+      "id": "rec27puoZzrDN8",
+      "record_id": "rec27puoZzrDN8"
+    },
+    {
+      "fields": {
+        "Date": 1778981400000,
+        "Hari": [
+          {
+            "text": "Minggu",
+            "type": "text"
+          }
+        ],
+        "Judul Acara": "Kelas CSP & PTP",
+        "Tempat Acara": "Thung Te"
+      },
+      "id": "rec27pupmKFj5G",
+      "record_id": "rec27pupmKFj5G"
+    },
+    {
+      "fields": {
+        "Date": 1779586200000,
+        "Hari": [
+          {
+            "text": "Minggu",
+            "type": "text"
+          }
+        ],
+        "Judul Acara": "Kelas bakti gabungan Xue jie & Remaja",
+        "Tempat Acara": "Pusat"
+      },
+      "id": "rec27pupXXOepq",
+      "record_id": "rec27pupXXOepq"
     }
   ]
 }
