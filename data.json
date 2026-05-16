@@ -423,10 +423,10 @@
     },
     {
       "fields": {
-        "Date": 1779107400000,
+        "Date": 1779193800000,
         "Hari": [
           {
-            "text": "Senin",
+            "text": "Selasa",
             "type": "text"
           }
         ],
@@ -438,10 +438,10 @@
     },
     {
       "fields": {
-        "Date": 1779712200000,
+        "Date": 1779798600000,
         "Hari": [
           {
-            "text": "Senin",
+            "text": "Selasa",
             "type": "text"
           }
         ],
