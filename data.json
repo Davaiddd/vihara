@@ -630,6 +630,21 @@
       },
       "id": "rec27wgVBa2O50",
       "record_id": "rec27wgVBa2O50"
+    },
+    {
+      "fields": {
+        "Date": 1781312400000,
+        "Hari": [
+          {
+            "text": "Sabtu",
+            "type": "text"
+          }
+        ],
+        "Judul Acara": "Xie jie jjp",
+        "Tempat Acara": "Pusat"
+      },
+      "id": "rec27wgWXYJR0v",
+      "record_id": "rec27wgWXYJR0v"
     }
   ]
 }
