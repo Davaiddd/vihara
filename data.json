@@ -675,6 +675,21 @@
       },
       "id": "rec27wh08Wafjb",
       "record_id": "rec27wh08Wafjb"
+    },
+    {
+      "fields": {
+        "Date": 1780394400000,
+        "Hari": [
+          {
+            "text": "Selasa",
+            "type": "text"
+          }
+        ],
+        "Judul Acara": "Kelas SMP",
+        "Tempat Acara": "Thung Te"
+      },
+      "id": "rec27wh2LLA2Tz",
+      "record_id": "rec27wh2LLA2Tz"
     }
   ]
 }
