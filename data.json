@@ -645,6 +645,21 @@
       },
       "id": "rec27wgWXYJR0v",
       "record_id": "rec27wgWXYJR0v"
+    },
+    {
+      "fields": {
+        "Date": 1782007200000,
+        "Hari": [
+          {
+            "text": "Minggu",
+            "type": "text"
+          }
+        ],
+        "Judul Acara": "Peresmian Cetya Ji",
+        "Tempat Acara": "Lainnya"
+      },
+      "id": "rec27wgYYbwQ26",
+      "record_id": "rec27wgYYbwQ26"
     }
   ]
 }
