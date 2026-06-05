@@ -690,6 +690,21 @@
       },
       "id": "rec27wh2LLA2Tz",
       "record_id": "rec27wh2LLA2Tz"
+    },
+    {
+      "fields": {
+        "Date": 1781406000000,
+        "Hari": [
+          {
+            "text": "Minggu",
+            "type": "text"
+          }
+        ],
+        "Judul Acara": "Kelas BJD  & kelas mandarin",
+        "Tempat Acara": "Xiu De"
+      },
+      "id": "rec27xsAHmboAZ",
+      "record_id": "rec27xsAHmboAZ"
     }
   ]
 }
