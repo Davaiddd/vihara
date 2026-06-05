@@ -705,6 +705,21 @@
       },
       "id": "rec27xsAHmboAZ",
       "record_id": "rec27xsAHmboAZ"
+    },
+    {
+      "fields": {
+        "Date": 1781523000000,
+        "Hari": [
+          {
+            "text": "Senin",
+            "type": "text"
+          }
+        ],
+        "Judul Acara": "Kebaktian malam che it",
+        "Tempat Acara": "Xiu De"
+      },
+      "id": "rec27xsCR5VKCW",
+      "record_id": "rec27xsCR5VKCW"
     }
   ]
 }
