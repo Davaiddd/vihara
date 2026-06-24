@@ -750,6 +750,21 @@
       },
       "id": "rec27EMRMb4ruL",
       "record_id": "rec27EMRMb4ruL"
+    },
+    {
+      "fields": {
+        "Date": 1782610200000,
+        "Hari": [
+          {
+            "text": "Minggu",
+            "type": "text"
+          }
+        ],
+        "Judul Acara": "Kelas Xie Jie ",
+        "Tempat Acara": "Pusat"
+      },
+      "id": "rec27EMSx67xos",
+      "record_id": "rec27EMSx67xos"
     }
   ]
 }
