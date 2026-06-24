@@ -735,6 +735,21 @@
       },
       "id": "rec27EMR2F4s4p",
       "record_id": "rec27EMR2F4s4p"
+    },
+    {
+      "fields": {
+        "Date": 1782608400000,
+        "Hari": [
+          {
+            "text": "Minggu",
+            "type": "text"
+          }
+        ],
+        "Judul Acara": "Pan Wu Fa Hui di Cete Jkt",
+        "Tempat Acara": "Lainnya"
+      },
+      "id": "rec27EMRMb4ruL",
+      "record_id": "rec27EMRMb4ruL"
     }
   ]
 }
