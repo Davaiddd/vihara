@@ -765,6 +765,21 @@
       },
       "id": "rec27EMSx67xos",
       "record_id": "rec27EMSx67xos"
+    },
+    {
+      "fields": {
+        "Date": 1783215000000,
+        "Hari": [
+          {
+            "text": "Minggu",
+            "type": "text"
+          }
+        ],
+        "Judul Acara": "Kelas Dharma ",
+        "Tempat Acara": "Pusat"
+      },
+      "id": "rec27EMTUdixK5",
+      "record_id": "rec27EMTUdixK5"
     }
   ]
 }
