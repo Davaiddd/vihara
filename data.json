@@ -720,6 +720,21 @@
       },
       "id": "rec27xsCR5VKCW",
       "record_id": "rec27xsCR5VKCW"
+    },
+    {
+      "fields": {
+        "Date": 1782522000000,
+        "Hari": [
+          {
+            "text": "Sabtu",
+            "type": "text"
+          }
+        ],
+        "Judul Acara": "Pan wu Fa Hui di Cete Jkt",
+        "Tempat Acara": "Online"
+      },
+      "id": "rec27EMR2F4s4p",
+      "record_id": "rec27EMR2F4s4p"
     }
   ]
 }
