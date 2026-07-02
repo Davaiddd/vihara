@@ -870,6 +870,21 @@
       },
       "id": "rec27I92bhnnsU",
       "record_id": "rec27I92bhnnsU"
+    },
+    {
+      "fields": {
+        "Date": 1784424600000,
+        "Hari": [
+          {
+            "text": "Minggu",
+            "type": "text"
+          }
+        ],
+        "Judul Acara": "Kelas Remaja zona",
+        "Tempat Acara": "Lainnya"
+      },
+      "id": "rec27I93vsJfrP",
+      "record_id": "rec27I93vsJfrP"
     }
   ]
 }
