@@ -855,6 +855,21 @@
       },
       "id": "rec27I91aqraCs",
       "record_id": "rec27I91aqraCs"
+    },
+    {
+      "fields": {
+        "Date": 1784424600000,
+        "Hari": [
+          {
+            "text": "Minggu",
+            "type": "text"
+          }
+        ],
+        "Judul Acara": "Kelas xie jie ",
+        "Tempat Acara": "Pusat"
+      },
+      "id": "rec27I92bhnnsU",
+      "record_id": "rec27I92bhnnsU"
     }
   ]
 }
