@@ -915,6 +915,21 @@
       },
       "id": "rec27I96GAMgvT",
       "record_id": "rec27I96GAMgvT"
+    },
+    {
+      "fields": {
+        "Date": 1785027600000,
+        "Hari": [
+          {
+            "text": "Minggu",
+            "type": "text"
+          }
+        ],
+        "Judul Acara": "Pan Wu Fa Hui",
+        "Tempat Acara": "Thung Te"
+      },
+      "id": "rec27I97tiJWpU",
+      "record_id": "rec27I97tiJWpU"
     }
   ]
 }
