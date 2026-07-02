@@ -795,6 +795,21 @@
       },
       "id": "rec27EMUHlE7NK",
       "record_id": "rec27EMUHlE7NK"
+    },
+    {
+      "fields": {
+        "Date": 1783245600000,
+        "Hari": [
+          {
+            "text": "Minggu",
+            "type": "text"
+          }
+        ],
+        "Judul Acara": "KELAS SMP",
+        "Tempat Acara": "Thung Te"
+      },
+      "id": "rec27I8VyRTkP4",
+      "record_id": "rec27I8VyRTkP4"
     }
   ]
 }
