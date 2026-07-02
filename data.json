@@ -825,6 +825,21 @@
       },
       "id": "rec27I8YbVyVae",
       "record_id": "rec27I8YbVyVae"
+    },
+    {
+      "fields": {
+        "Date": 1783819800000,
+        "Hari": [
+          {
+            "text": "Minggu",
+            "type": "text"
+          }
+        ],
+        "Judul Acara": "Evaluasi pertengahan tahun ",
+        "Tempat Acara": "Pusat"
+      },
+      "id": "rec27I8ZDTo79g",
+      "record_id": "rec27I8ZDTo79g"
     }
   ]
 }
