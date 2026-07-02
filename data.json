@@ -885,6 +885,21 @@
       },
       "id": "rec27I93vsJfrP",
       "record_id": "rec27I93vsJfrP"
+    },
+    {
+      "fields": {
+        "Date": 1784637000000,
+        "Hari": [
+          {
+            "text": "Selasa",
+            "type": "text"
+          }
+        ],
+        "Judul Acara": "Kelas penceramah ",
+        "Tempat Acara": "Online"
+      },
+      "id": "rec27I94sF2uwa",
+      "record_id": "rec27I94sF2uwa"
     }
   ]
 }
