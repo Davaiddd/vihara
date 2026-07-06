@@ -930,6 +930,21 @@
       },
       "id": "rec27I97tiJWpU",
       "record_id": "rec27I97tiJWpU"
+    },
+    {
+      "fields": {
+        "Date": 1783850400000,
+        "Hari": [
+          {
+            "text": "Minggu",
+            "type": "text"
+          }
+        ],
+        "Judul Acara": "Tea party",
+        "Tempat Acara": "Thung Te"
+      },
+      "id": "rec27JCnPWgRom",
+      "record_id": "rec27JCnPWgRom"
     }
   ]
 }
