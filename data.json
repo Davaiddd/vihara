@@ -3,6 +3,19 @@
   "items": [
     {
       "fields": {
+        "Hari": [
+          {
+            "text": "Sabtu",
+            "type": "text"
+          }
+        ],
+        "Judul Acara": "Hermes Lark Base edit test"
+      },
+      "id": "recvsolYnCpeBB",
+      "record_id": "recvsolYnCpeBB"
+    },
+    {
+      "fields": {
         "Date": 1773594000000,
         "Hari": [
           {
