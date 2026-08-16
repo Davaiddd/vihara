@@ -973,6 +973,19 @@
       },
       "id": "rec27JCpoDswg6",
       "record_id": "rec27JCpoDswg6"
+    },
+    {
+      "fields": {
+        "Hari": [
+          {
+            "text": "Sabtu",
+            "type": "text"
+          }
+        ],
+        "Judul Acara": "Hermes direct API collaborator test"
+      },
+      "id": "recvsrrORuytXB",
+      "record_id": "recvsrrORuytXB"
     }
   ]
 }
