@@ -986,6 +986,19 @@
       },
       "id": "recvsrrORuytXB",
       "record_id": "recvsrrORuytXB"
+    },
+    {
+      "fields": {
+        "Hari": [
+          {
+            "text": "Sabtu",
+            "type": "text"
+          }
+        ],
+        "Judul Acara": "Test record"
+      },
+      "id": "recvsrtDZD4PcZ",
+      "record_id": "recvsrtDZD4PcZ"
     }
   ]
 }
