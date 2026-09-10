@@ -1185,21 +1185,6 @@
       },
       "id": "recvuPBIASYxxk",
       "record_id": "recvuPBIASYxxk"
-    },
-    {
-      "fields": {
-        "Date": 1789052400000,
-        "Hari": [
-          {
-            "text": "Kamis",
-            "type": "text"
-          }
-        ],
-        "Judul Acara": "Test",
-        "Tempat Acara": "Xiu De"
-      },
-      "id": "rec289T31yoHGi",
-      "record_id": "rec289T31yoHGi"
     }
   ]
 }
