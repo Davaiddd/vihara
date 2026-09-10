@@ -963,16 +963,228 @@
     },
     {
       "fields": {
+        "Date": 1788265800000,
+        "Hari": [
+          {
+            "text": "Selasa",
+            "type": "text"
+          }
+        ],
+        "Judul Acara": "Kelas penceramah online\nBedah kitab sutra lotus",
+        "Tempat Acara": "Online"
+      },
+      "id": "recvuPBIASd3Qm",
+      "record_id": "recvuPBIASd3Qm"
+    },
+    {
+      "fields": {
+        "Date": 1788656400000,
+        "Hari": [
+          {
+            "text": "Minggu",
+            "type": "text"
+          }
+        ],
+        "Judul Acara": "Kelas dharma",
+        "Tempat Acara": "Thung Te"
+      },
+      "id": "recvuPBIAS9ZMl",
+      "record_id": "recvuPBIAS9ZMl"
+    },
+    {
+      "fields": {
+        "Date": 1788870600000,
+        "Hari": [
+          {
+            "text": "Selasa",
+            "type": "text"
+          }
+        ],
+        "Judul Acara": "Kelas penceramah online\nBedah kitab sutra lotus",
+        "Tempat Acara": "Online"
+      },
+      "id": "recvuPBIASsuYN",
+      "record_id": "recvuPBIASsuYN"
+    },
+    {
+      "fields": {
+        "Date": 1789041600000,
+        "Hari": [
+          {
+            "text": "Kamis",
+            "type": "text"
+          }
+        ],
+        "Judul Acara": "Kebaktian malam che it",
+        "Tempat Acara": "Xiu De"
+      },
+      "id": "recvuPBIAS5UUx",
+      "record_id": "recvuPBIAS5UUx"
+    },
+    {
+      "fields": {
+        "Date": 1789174800000,
         "Hari": [
           {
             "text": "Sabtu",
             "type": "text"
           }
         ],
-        "Judul Acara": "Hermes direct API collaborator test"
+        "Judul Acara": "Fa hui Xien Te",
+        "Tempat Acara": "Xien Te"
       },
-      "id": "recvsrrORuytXB",
-      "record_id": "recvsrrORuytXB"
+      "id": "recvuPBIASJwXL",
+      "record_id": "recvuPBIASJwXL"
+    },
+    {
+      "fields": {
+        "Date": 1789261200000,
+        "Hari": [
+          {
+            "text": "Minggu",
+            "type": "text"
+          }
+        ],
+        "Judul Acara": "Fa hui Xien Te",
+        "Tempat Acara": "Xien Te"
+      },
+      "id": "recvuPBIASYWx3",
+      "record_id": "recvuPBIASYWx3"
+    },
+    {
+      "fields": {
+        "Date": 1789293600000,
+        "Hari": [
+          {
+            "text": "Minggu",
+            "type": "text"
+          }
+        ],
+        "Judul Acara": "Kelas SMP jam 17.00\nDi Vhr Thung Te",
+        "Tempat Acara": "Thung Te"
+      },
+      "id": "recvuPBIASKZue",
+      "record_id": "recvuPBIASKZue"
+    },
+    {
+      "fields": {
+        "Date": 1789475400000,
+        "Hari": [
+          {
+            "text": "Selasa",
+            "type": "text"
+          }
+        ],
+        "Judul Acara": "Kelas penceramah online\nBedah kitab sutra lotus",
+        "Tempat Acara": "Online"
+      },
+      "id": "recvuPBIAS9EsF",
+      "record_id": "recvuPBIAS9EsF"
+    },
+    {
+      "fields": {
+        "Date": 1789786800000,
+        "Hari": [
+          {
+            "text": "Sabtu",
+            "type": "text"
+          }
+        ],
+        "Judul Acara": "Thung Te Cup",
+        "Tempat Acara": "Thung Te"
+      },
+      "id": "recvuPBIAS2s1w",
+      "record_id": "recvuPBIAS2s1w"
+    },
+    {
+      "fields": {
+        "Date": 1789867800000,
+        "Hari": [
+          {
+            "text": "Minggu",
+            "type": "text"
+          }
+        ],
+        "Judul Acara": "Mid autom di Vp\nPembagian JMJ",
+        "Tempat Acara": "Pusat"
+      },
+      "id": "recvuPBIAS2XA1",
+      "record_id": "recvuPBIAS2XA1"
+    },
+    {
+      "fields": {
+        "Date": 1790080200000,
+        "Hari": [
+          {
+            "text": "Selasa",
+            "type": "text"
+          }
+        ],
+        "Judul Acara": "Kelas penceramah online\nBedah kitab sutra lotus",
+        "Tempat Acara": "Online"
+      },
+      "id": "recvuPBIASUnGf",
+      "record_id": "recvuPBIASUnGf"
+    },
+    {
+      "fields": {
+        "Date": 1790249400000,
+        "Hari": [
+          {
+            "text": "Kamis",
+            "type": "text"
+          }
+        ],
+        "Judul Acara": "Kebaktian malam cap go",
+        "Tempat Acara": "Xiu De"
+      },
+      "id": "recvuPBIASaEcY",
+      "record_id": "recvuPBIASaEcY"
+    },
+    {
+      "fields": {
+        "Date": 1790337600000,
+        "Hari": [
+          {
+            "text": "Jumat",
+            "type": "text"
+          }
+        ],
+        "Judul Acara": "Rapat CYCY di Vp",
+        "Tempat Acara": "Pusat"
+      },
+      "id": "recvuPBIASAZJ4",
+      "record_id": "recvuPBIASAZJ4"
+    },
+    {
+      "fields": {
+        "Date": 1790488800000,
+        "Hari": [
+          {
+            "text": "Minggu",
+            "type": "text"
+          }
+        ],
+        "Judul Acara": "Kelulusan kelas dharma 5 thn akademi",
+        "Tempat Acara": "Pusat"
+      },
+      "id": "recvuPBIASuOM7",
+      "record_id": "recvuPBIASuOM7"
+    },
+    {
+      "fields": {
+        "Date": 1790685000000,
+        "Hari": [
+          {
+            "text": "Selasa",
+            "type": "text"
+          }
+        ],
+        "Judul Acara": "Kelas penceramah online\nBedah kitab sutra lotus",
+        "Tempat Acara": "Online"
+      },
+      "id": "recvuPBIASYxxk",
+      "record_id": "recvuPBIASYxxk"
     }
   ]
 }
