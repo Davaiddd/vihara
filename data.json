@@ -1158,14 +1158,14 @@
     },
     {
       "fields": {
-        "Date": 1790488800000,
+        "Date": 1790492400000,
         "Hari": [
           {
             "text": "Minggu",
             "type": "text"
           }
         ],
-        "Judul Acara": "Kelulusan kelas dharma 5 thn akademi",
+        "Judul Acara": "Kelulusan kelas dharma 7 ajaran CD",
         "Tempat Acara": "Pusat"
       },
       "id": "recvuPBIASuOM7",
@@ -1180,11 +1180,131 @@
             "type": "text"
           }
         ],
-        "Judul Acara": "Kelas penceramah online\nBedah kitab sutra lotus",
+        "Judul Acara": "Kelas Online kitab suci",
         "Tempat Acara": "Online"
       },
       "id": "recvuPBIASYxxk",
       "record_id": "recvuPBIASYxxk"
+    },
+    {
+      "fields": {
+        "Date": 1791289800000,
+        "Hari": [
+          {
+            "text": "Selasa",
+            "type": "text"
+          }
+        ],
+        "Judul Acara": "Kelas Online kitab suci",
+        "Tempat Acara": "Online"
+      },
+      "id": "recvvX4MWIBRzw",
+      "record_id": "recvvX4MWIBRzw"
+    },
+    {
+      "fields": {
+        "Date": 1791894600000,
+        "Hari": [
+          {
+            "text": "Selasa",
+            "type": "text"
+          }
+        ],
+        "Judul Acara": "Kelas Online kitab suci",
+        "Tempat Acara": "Online"
+      },
+      "id": "recvvX4MWIF0BC",
+      "record_id": "recvvX4MWIF0BC"
+    },
+    {
+      "fields": {
+        "Date": 1792499400000,
+        "Hari": [
+          {
+            "text": "Selasa",
+            "type": "text"
+          }
+        ],
+        "Judul Acara": "Kelas Online kitab suci",
+        "Tempat Acara": "Online"
+      },
+      "id": "recvvX4MWIYEqY",
+      "record_id": "recvvX4MWIYEqY"
+    },
+    {
+      "fields": {
+        "Date": 1793104200000,
+        "Hari": [
+          {
+            "text": "Selasa",
+            "type": "text"
+          }
+        ],
+        "Judul Acara": "Kelas Online kitab suci",
+        "Tempat Acara": "Online"
+      },
+      "id": "recvvX4MWIILB8",
+      "record_id": "recvvX4MWIILB8"
+    },
+    {
+      "fields": {
+        "Date": 1790996400000,
+        "Hari": [
+          {
+            "text": "Sabtu",
+            "type": "text"
+          }
+        ],
+        "Judul Acara": "Kelas DJB",
+        "Tempat Acara": "Xiu De"
+      },
+      "id": "recvvX4MWImNc5",
+      "record_id": "recvvX4MWImNc5"
+    },
+    {
+      "fields": {
+        "Date": 1791077400000,
+        "Hari": [
+          {
+            "text": "Minggu",
+            "type": "text"
+          }
+        ],
+        "Judul Acara": "Kls Csp & Ptp wil selatan",
+        "Tempat Acara": "Thung Te"
+      },
+      "id": "recvvX4MWIcpzA",
+      "record_id": "recvvX4MWIcpzA"
+    },
+    {
+      "fields": {
+        "Date": 1791111600000,
+        "Hari": [
+          {
+            "text": "Minggu",
+            "type": "text"
+          }
+        ],
+        "Judul Acara": "Kelas SMP",
+        "Tempat Acara": "Thung Te"
+      },
+      "id": "recvvX4MWI2f6q",
+      "record_id": "recvvX4MWI2f6q"
+    },
+    {
+      "fields": {
+        "Date": 1791545400000,
+        "Hari": [
+          {
+            "text": "Jumat",
+            "type": "text"
+          }
+        ],
+        "Judul Acara": "Kebaktian malam che it",
+        "Tempat Acara": "Xiu De"
+      },
+      "id": "recvvX4MWIzjGV",
+      "record_id": "recvvX4MWIzjGV"
     }
   ]
 }
