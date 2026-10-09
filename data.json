@@ -1293,18 +1293,198 @@
     },
     {
       "fields": {
-        "Date": 1791545400000,
+        "Date": 1791543600000,
         "Hari": [
           {
             "text": "Jumat",
             "type": "text"
           }
         ],
-        "Judul Acara": "Kebaktian malam che it",
+        "Judul Acara": "Kebaktian malam Che It",
         "Tempat Acara": "Xiu De"
       },
       "id": "recvvX4MWIzjGV",
       "record_id": "recvvX4MWIzjGV"
+    },
+    {
+      "fields": {
+        "Date": 1791635400000,
+        "Hari": [
+          {
+            "text": "Sabtu",
+            "type": "text"
+          }
+        ],
+        "Judul Acara": "Kebaktian che it",
+        "Tempat Acara": "Thung Te"
+      },
+      "id": "reczz28LAnsgCyG9",
+      "record_id": "reczz28LAnsgCyG9"
+    },
+    {
+      "fields": {
+        "Date": 1791682200000,
+        "Hari": [
+          {
+            "text": "Minggu",
+            "type": "text"
+          }
+        ],
+        "Judul Acara": "Kls dharma Pusat\nStp - Khp",
+        "Tempat Acara": "Pusat"
+      },
+      "id": "reczz28LAnsgDYPK",
+      "record_id": "reczz28LAnsgDYPK"
+    },
+    {
+      "fields": {
+        "Date": 1791698400000,
+        "Hari": [
+          {
+            "text": "Minggu",
+            "type": "text"
+          }
+        ],
+        "Judul Acara": "Bersih2 Vp",
+        "Tempat Acara": "Pusat"
+      },
+      "id": "reczz28LAnsgDh0j",
+      "record_id": "reczz28LAnsgDh0j"
+    },
+    {
+      "fields": {
+        "Date": 1792292400000,
+        "Hari": [
+          {
+            "text": "Minggu",
+            "type": "text"
+          }
+        ],
+        "Judul Acara": "Bazaar",
+        "Tempat Acara": "Thung Te"
+      },
+      "id": "reczz28LAnsgDBRH",
+      "record_id": "reczz28LAnsgDBRH"
+    },
+    {
+      "fields": {
+        "Date": 1792321200000,
+        "Hari": [
+          {
+            "text": "Minggu",
+            "type": "text"
+          }
+        ],
+        "Judul Acara": "Rapat sek sosial kegiatan duka",
+        "Tempat Acara": "Thung Te"
+      },
+      "id": "reczz28LAnsgBrPk",
+      "record_id": "reczz28LAnsgBrPk"
+    },
+    {
+      "fields": {
+        "Date": 1792794600000,
+        "Hari": [
+          {
+            "text": "Sabtu",
+            "type": "text"
+          }
+        ],
+        "Judul Acara": "Kumpul kebaktian kegiatan Dharma Tour",
+        "Tempat Acara": "Thung Te"
+      },
+      "id": "reczz28LAnsgDyrP",
+      "record_id": "reczz28LAnsgDyrP"
+    },
+    {
+      "fields": {
+        "Date": 1792881000000,
+        "Hari": [
+          {
+            "text": "Minggu",
+            "type": "text"
+          }
+        ],
+        "Judul Acara": "Kumpul kebaktian kegiatan Dharma Tour",
+        "Tempat Acara": "Thung Te"
+      },
+      "id": "reczz28LAnsgDh9t",
+      "record_id": "reczz28LAnsgDh9t"
+    },
+    {
+      "fields": {
+        "Date": 1793190600000,
+        "Hari": [
+          {
+            "text": "Rabu",
+            "type": "text"
+          }
+        ],
+        "Judul Acara": "Hari kesempuran Budha Kwan Im & pan tao bersama",
+        "Tempat Acara": "Thung Te"
+      },
+      "id": "reczz28LAnsgCF7o",
+      "record_id": "reczz28LAnsgCF7o"
+    },
+    {
+      "fields": {
+        "Date": 1793410200000,
+        "Hari": [
+          {
+            "text": "Sabtu",
+            "type": "text"
+          }
+        ],
+        "Judul Acara": "Sheng Tian Fa hui",
+        "Tempat Acara": "Pusat"
+      },
+      "id": "reczz28LAnsgDjQk",
+      "record_id": "reczz28LAnsgDjQk"
+    },
+    {
+      "fields": {
+        "Date": 1793496600000,
+        "Hari": [
+          {
+            "text": "Minggu",
+            "type": "text"
+          }
+        ],
+        "Judul Acara": "Sheng Tian Fa hui",
+        "Tempat Acara": "Pusat"
+      },
+      "id": "reczz28LAnsgB4pu",
+      "record_id": "reczz28LAnsgB4pu"
+    },
+    {
+      "fields": {
+        "Date": 1794045600000,
+        "Hari": [
+          {
+            "text": "Sabtu",
+            "type": "text"
+          }
+        ],
+        "Judul Acara": "Seminar pembaharuan & pan tao bersama",
+        "Tempat Acara": "Thung Te"
+      },
+      "id": "reczz28LAnsgAwTO",
+      "record_id": "reczz28LAnsgAwTO"
+    },
+    {
+      "fields": {
+        "Date": 1794101400000,
+        "Hari": [
+          {
+            "text": "Minggu",
+            "type": "text"
+          }
+        ],
+        "Judul Acara": "Resital DJB",
+        "Tempat Acara": "Pusat"
+      },
+      "id": "reczz28LAnsgCY72",
+      "record_id": "reczz28LAnsgCY72"
     }
   ]
 }
