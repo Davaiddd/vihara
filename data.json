@@ -1485,6 +1485,200 @@
       },
       "id": "reczz28LAnsgCY72",
       "record_id": "reczz28LAnsgCY72"
+    },
+    {
+      "fields": {
+        "Date": 1795221000000,
+        "Hari": [
+          {
+            "text": "Sabtu",
+            "type": "text"
+          }
+        ],
+        "Judul Acara": "Nonton bersama anak &  org tua dr DJB",
+        "Tempat Acara": "Bioskop lippo karawaci"
+      },
+      "id": "reczz28bUC8GFnmr",
+      "record_id": "reczz28bUC8GFnmr"
+    },
+    {
+      "fields": {
+        "Date": 1795305600000,
+        "Hari": [
+          {
+            "text": "Minggu",
+            "type": "text"
+          }
+        ],
+        "Judul Acara": "Lomba XJ Cup\n(badmin, basket,\n catur)",
+        "Tempat Acara": "Gor sunter"
+      },
+      "id": "reczz28bUC8GF5BZ",
+      "record_id": "reczz28bUC8GF5BZ"
+    },
+    {
+      "fields": {
+        "Date": 1795348800000,
+        "Hari": [
+          {
+            "text": "Minggu",
+            "type": "text"
+          }
+        ],
+        "Judul Acara": "Kebaktian malam cap go",
+        "Tempat Acara": "Xiu De"
+      },
+      "id": "reczz28bUC8GGLJi",
+      "record_id": "reczz28bUC8GGLJi"
+    },
+    {
+      "fields": {
+        "Date": 1795829400000,
+        "Hari": [
+          {
+            "text": "Sabtu",
+            "type": "text"
+          }
+        ],
+        "Judul Acara": "Fahui wil selatan",
+        "Tempat Acara": "Mao Te"
+      },
+      "id": "reczz28bUC8GDyAo",
+      "record_id": "reczz28bUC8GDyAo"
+    },
+    {
+      "fields": {
+        "Date": 1795915800000,
+        "Hari": [
+          {
+            "text": "Minggu",
+            "type": "text"
+          }
+        ],
+        "Judul Acara": "Fahui wil selatan",
+        "Tempat Acara": "Mao Te"
+      },
+      "id": "reczz28bUC8GE4y2",
+      "record_id": "reczz28bUC8GE4y2"
+    },
+    {
+      "fields": {
+        "Date": 1796518800000,
+        "Hari": [
+          {
+            "text": "Minggu",
+            "type": "text"
+          }
+        ],
+        "Judul Acara": "Pelatihan pendidikan umum",
+        "Tempat Acara": "Pusat"
+      },
+      "id": "reczz28bUC8GGQS9",
+      "record_id": "reczz28bUC8GGQS9"
+    },
+    {
+      "fields": {
+        "Date": 1796644800000,
+        "Hari": [
+          {
+            "text": "Senin",
+            "type": "text"
+          }
+        ],
+        "Judul Acara": "Kebaktian malam che it",
+        "Tempat Acara": "Xiu De"
+      },
+      "id": "reczz28bUC8GGm7x",
+      "record_id": "reczz28bUC8GGm7x"
+    },
+    {
+      "fields": {
+        "Date": 1797123600000,
+        "Hari": [
+          {
+            "text": "Minggu",
+            "type": "text"
+          }
+        ],
+        "Judul Acara": "Rakerja &  Rakerbim",
+        "Tempat Acara": "Pusat"
+      },
+      "id": "reczz28bUC8GDipV",
+      "record_id": "reczz28bUC8GDipV"
+    },
+    {
+      "fields": {
+        "Date": 1795917600000,
+        "Hari": [
+          {
+            "text": "Minggu",
+            "type": "text"
+          }
+        ],
+        "Judul Acara": "Lomba Remaja cup",
+        "Tempat Acara": "Gor sunter"
+      },
+      "id": "reczz28bUFGhuPYm",
+      "record_id": "reczz28bUFGhuPYm"
+    },
+    {
+      "fields": {
+        "Date": 1796058000000,
+        "Hari": [
+          {
+            "text": "Selasa",
+            "type": "text"
+          }
+        ],
+        "Judul Acara": "Hut Bodhisatva tak istirahat\nSepanjang hari (all day)"
+      },
+      "id": "reczz28bUFGhvl6M",
+      "record_id": "reczz28bUFGhvl6M"
+    },
+    {
+      "fields": {
+        "Date": 1797645600000,
+        "Hari": [
+          {
+            "text": "Sabtu",
+            "type": "text"
+          }
+        ],
+        "Judul Acara": "Fa hui\n09:00–17:00 WIB",
+        "Tempat Acara": "Shan De"
+      },
+      "id": "reczz28bUFGhxuZ9",
+      "record_id": "reczz28bUFGhxuZ9"
+    },
+    {
+      "fields": {
+        "Date": 1797732000000,
+        "Hari": [
+          {
+            "text": "Minggu",
+            "type": "text"
+          }
+        ],
+        "Judul Acara": "Fa hui\n09:00–17:00 WIB",
+        "Tempat Acara": "Shan De"
+      },
+      "id": "reczz28bUFGhvZNl",
+      "record_id": "reczz28bUFGhvZNl"
+    },
+    {
+      "fields": {
+        "Date": 1797940800000,
+        "Hari": [
+          {
+            "text": "Selasa",
+            "type": "text"
+          }
+        ],
+        "Judul Acara": "Kebaktian malam cap go\n19:00–21:00 WIB",
+        "Tempat Acara": "Xiu De"
+      },
+      "id": "reczz28bUFGhvelr",
+      "record_id": "reczz28bUFGhvelr"
     }
   ]
 }
